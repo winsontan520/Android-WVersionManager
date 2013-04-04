@@ -1,0 +1,141 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/label_setVersionContentUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="setVersionContentUrl" />
+
+        <EditText
+            android:id="@+id/versionContentUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_setVersionContentUrl"
+            android:layout_marginLeft="15dp"
+            android:ems="15"
+            android:inputType="textUri"
+            android:text="http://bit.ly/11c7Pnb" />
+
+        <LinearLayout
+            android:id="@+id/url_button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/versionContentUrl"
+            android:weightSum="1.0" >
+
+            <Button
+                android:id="@+id/use_version_2_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onClickHandler"
+                android:text="Use sample version 2 url" />
+
+            <Button
+                android:id="@+id/use_version_3_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onClickHandler"
+                android:text="Use sample version 3 url" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_setUpdateNowLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/url_button_layout"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="setUpdateNowLabel" />
+
+        <EditText
+            android:id="@+id/updateNowLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/text_setUpdateNowLabel"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:text="Update now" />
+
+        <TextView
+            android:id="@+id/text_setRemindMeLaterLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/updateNowLabel"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="setRemindMeLaterLabel" />
+
+        <EditText
+            android:id="@+id/remindMeLaterLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_setRemindMeLaterLabel"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:text="Remind me later" />
+
+        <TextView
+            android:id="@+id/text_setIgnoreThisVersionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/remindMeLaterLabel"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="setIgnoreThisVersionLabel" />
+
+        <EditText
+            android:id="@+id/ignoreThisVersionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_setIgnoreThisVersionLabel"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:text="Ignore this version" />
+
+        <TextView
+            android:id="@+id/text_setReminderTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ignoreThisVersionLabel"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="setReminderTimer (minutes)" />
+
+        <EditText
+            android:id="@+id/reminderTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_setReminderTimer"
+            android:layout_marginLeft="15dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/check_version_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reminderTimer"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickHandler"
+            android:text="Check version" />
+    </RelativeLayout>
+
+</ScrollView>
