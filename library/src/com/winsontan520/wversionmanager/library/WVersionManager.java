@@ -28,6 +28,10 @@ import android.util.Log;
 
 public class WVersionManager implements IWVersionManager {
 	private static final String TAG = "WVersionManager";
+	
+	private static final int MODE_CHECK_VERSION = 100;
+	private static final int MODE_ASK_FOR_RATE = 200;
+	
 
 	private CustomTagHandler customTagHandler;
 	
@@ -46,6 +50,11 @@ public class WVersionManager implements IWVersionManager {
 	private int reminderTimer;
 	private int versionCode;
 	private AlertDialogButtonListener listener;
+	private boolean mDialogCancelable = true;
+	private boolean mIsAskForRate = false;
+	private String mAskForRatePositiveLabel;
+	private String mAskForRateNegativeLabel;
+	private int mMode = 100; // default mode
 	
 	public WVersionManager(Activity act){
 		this.activity = act;
@@ -59,6 +68,7 @@ public class WVersionManager implements IWVersionManager {
 	}
 
 	public void checkVersion() {
+		mMode = MODE_CHECK_VERSION;
 		String versionContentUrl = getVersionContentUrl();
 		if(versionContentUrl == null){
 			Log.e(TAG, "Please set versionContentUrl first");
@@ -86,14 +96,25 @@ public class WVersionManager implements IWVersionManager {
 	private void showDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		
-		builder
-		.setIcon(getIcon())
-		.setTitle(getTitle())
-		.setMessage(Html.fromHtml(getMessage(), null, getCustomTagHandler()))
-		.setPositiveButton(getUpdateNowLabel(), listener)
-		.setNeutralButton(getRemindMeLaterLabel(), listener)
-		.setNegativeButton(getIgnoreThisVersionLabel(), listener)
-		.create();
+		builder.setIcon(getIcon());
+		builder.setTitle(getTitle());
+		builder.setMessage(Html.fromHtml(getMessage(), null, getCustomTagHandler()));
+		
+		switch (mMode) {
+		case MODE_CHECK_VERSION:
+			builder.setPositiveButton(getUpdateNowLabel(), listener);
+			builder.setNeutralButton(getRemindMeLaterLabel(), listener);
+			builder.setNegativeButton(getIgnoreThisVersionLabel(), listener);
+			break;
+		case MODE_ASK_FOR_RATE:
+			builder.setPositiveButton(getAskForRatePositiveLabel(), listener);
+			builder.setNegativeButton(getAskForRateNegativeLabel(), listener);
+			break;
+		default:
+			return;
+		}
+		
+		builder.setCancelable(isDialogCancelable());
 
         
         AlertDialog dialog = builder.create();
@@ -179,7 +200,17 @@ public class WVersionManager implements IWVersionManager {
 	 */
 	@Override
 	public String getMessage() {
-		return message != null? message : "What's new in this version";
+		String defaultMessage = null;
+		switch(mMode){
+		case MODE_CHECK_VERSION:
+			defaultMessage = "What's new in this version";
+			break;
+		case MODE_ASK_FOR_RATE:
+			defaultMessage = "Please rate us!";
+			break;
+		}
+		
+		return message != null? message : defaultMessage;
 	}
 	
 	/* (non-Javadoc)
@@ -187,7 +218,16 @@ public class WVersionManager implements IWVersionManager {
 	 */
 	@Override
 	public String getTitle() {
-		return title != null? title : "New Update Available";
+		String defaultTitle = null;
+		switch(mMode){
+		case MODE_CHECK_VERSION:
+			defaultTitle = "New Update Available";
+			break;
+		case MODE_ASK_FOR_RATE:
+			defaultTitle = "Rate this app";
+			break;
+		}
+		return title != null? title : defaultTitle;
 	}
 
 	/* (non-Javadoc)
@@ -427,6 +467,34 @@ public class WVersionManager implements IWVersionManager {
 	public void setCustomTagHandler(CustomTagHandler customTagHandler) {
 		this.customTagHandler = customTagHandler;
 	}
+
+	public boolean isDialogCancelable() {
+		return mDialogCancelable;
+	}
+
+	public void setDialogCancelable(boolean dialogCancelable) {
+		mDialogCancelable = dialogCancelable;
+	}
 	
+	public void askForRate(){
+		mMode = MODE_ASK_FOR_RATE;
+		showDialog();
+	}
+
+	public String getAskForRatePositiveLabel() {
+		return mAskForRatePositiveLabel == null? "OK":mAskForRatePositiveLabel;
+	}
+
+	public void setAskForRatePositiveLabel(String askForRatePositiveLabel) {
+		mAskForRatePositiveLabel = askForRatePositiveLabel;
+	}
+
+	public String getAskForRateNegativeLabel() {
+		return mAskForRateNegativeLabel == null? "Not now":mAskForRateNegativeLabel;
+	}
+
+	public void setAskForRateNegativeLabel(String askForRateNegativeLabel) {
+		mAskForRateNegativeLabel = askForRateNegativeLabel;
+	}
 	
 }

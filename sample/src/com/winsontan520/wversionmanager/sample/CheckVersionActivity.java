@@ -1,5 +1,6 @@
-package com.example.wversionmanager.sample;
+package com.winsontan520.wversionmanager.sample;
 
+import com.winsontan520.wversionmanager.sample.R;
 import com.winsontan520.wversionmanager.library.WVersionManager;
 
 import android.os.Bundle;
@@ -8,7 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
-public class MainActivity extends Activity {
+public class CheckVersionActivity extends Activity {
 	
 	// this is just a sample url to retrieve update content, the return content must follow the json format as stated in readme.md
 	public final static String URL_VERSION_2 = "http://bit.ly/11c7Pnb"; // this link is refer to a static text file hosted using dropbox
@@ -24,7 +25,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.check_version);
 		
 		versionContentUrl = (EditText) findViewById(R.id.versionContentUrl);
 		updateNowLabel = (EditText) findViewById(R.id.updateNowLabel);
@@ -62,6 +63,7 @@ public class MainActivity extends Activity {
 		versionManager.setRemindMeLaterLabel(remindMeLaterLabel.getText().toString());
 		versionManager.setIgnoreThisVersionLabel(ignoreThisVersionLabel.getText().toString());
 		versionManager.setReminderTimer(Integer.valueOf(reminderTimer.getText().toString()));
+	
 		versionManager.checkVersion();
 	}
 	
