@@ -2,18 +2,21 @@ Android-WVersionManager
 ====================
 
 ## Objective
-Save time to implement check new update available since Google play havent provide any API to check (written at Jan 2013)
+- Save time to implement check new update available since Google play havent provide any API to check (written at Jan 2013)
+- Ask user for rate
 
 ## Features
 - Show Alert Dialog with new update content and 3 options button: update now, remind me later and ignore this version.
+- Show ALert Dialog to prompt user ask for rating
 - Few lines of code to implement.
 
 ## Screenshots
-![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/screenshot1.png)
+![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image_check_version.png)
+![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image_ask_for_rate.png)
 
-## Usage
-1. Copy https://github.com/winsontan520/Android-WVersionManager/blob/master/wversionmanager-1.0.jar to your project libs folder. You may also check out src used as project library.
-2. In your Activity, 
+## Usage - Check Version for latest update
+1. Copy latest version of jarfile in folder JAR to your project libs folder. You may also check out src used as project library.
+2. For check version, in your Activity, 
 
     	protected void onCreate(Bundle savedInstanceState) {
     		super.onCreate(savedInstanceState);
@@ -38,6 +41,14 @@ Save time to implement check new update available since Google play havent provi
     	versionManager.setIgnoreThisVersionLabel("Custom ignore this version");
     	versionManager.setUpdateUrl("http://your_app_url"); // this is the link will execute when update now clicked. default will go to google play based on your package name.
     	versionManager.setReminderTimer(10); // this mean checkVersion() will not take effect within 10 minutes
+
+## Usage - Ask user for rate
+1. Copy latest version of jarfile in folder JAR to your project libs folder. You may also check out src used as project library.
+2. Add following lines to prompt user dialog for rating
+
+		WVersionManager versionManager = new WVersionManager(this);
+		versionManager.askForRate();
+		
 
 ## License - Free to use
     Copyright 2013 Winson Tan

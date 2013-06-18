@@ -1,0 +1,6 @@
+
+1.1
+Add ask for rate feature
+
+1.0
+Base version

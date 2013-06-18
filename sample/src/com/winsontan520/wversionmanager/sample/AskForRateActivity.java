@@ -30,7 +30,6 @@ public class AskForRateActivity extends Activity {
 
 	protected void askForRate() {
 		WVersionManager versionManager = new WVersionManager(this);
-		versionManager.setUpdateUrl("market://details?id=us.lovebyte");
 		versionManager.askForRate();
 		
 	}
