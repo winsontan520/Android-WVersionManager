@@ -11,8 +11,7 @@ Android-WVersionManager
 - Few lines of code to implement.
 
 ## Screenshots
-![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image_check_version.png)
-![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image_ask_for_rate.png)
+![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image.png)
 
 ## Usage - Check Version for latest update
 1. Copy latest version of jarfile in folder JAR to your project libs folder. You may also check out src used as project library.
@@ -49,7 +48,13 @@ Android-WVersionManager
 		WVersionManager versionManager = new WVersionManager(this);
 		versionManager.askForRate();
 		
+3. Customize label for ask for rate:
 
+		versionManager.setTitle("Please rate us"); // optional
+		versionManager.setMessage("We need your help to rate this app!"); // optional
+		versionManager.setAskForRatePositiveLabel("OK"); // optional
+		versionManager.setAskForRateNegativeLabel("Not now"); // optional
+		
 ## License - Free to use
     Copyright 2013 Winson Tan
     

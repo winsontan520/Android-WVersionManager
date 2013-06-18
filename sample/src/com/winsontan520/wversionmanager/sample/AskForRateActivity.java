@@ -30,6 +30,10 @@ public class AskForRateActivity extends Activity {
 
 	protected void askForRate() {
 		WVersionManager versionManager = new WVersionManager(this);
+		versionManager.setTitle("Please rate us"); // optional
+		versionManager.setMessage("We need your help to rate this app!"); // optional
+		versionManager.setAskForRatePositiveLabel("OK"); // optional
+		versionManager.setAskForRateNegativeLabel("Not now"); // optional
 		versionManager.askForRate();
 		
 	}
