@@ -13,6 +13,9 @@ Android-WVersionManager
 ## Screenshots
 ![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image.png)
 
+## Demo
+[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](http://play.google.com/store/apps/details?id=com.winsontan520.wversionmanager.sample)
+
 ## Usage - Check Version for latest update
 1. Copy latest version of jarfile in folder JAR to your project libs folder. You may also check out src used as project library.
 2. For check version, in your Activity, 
