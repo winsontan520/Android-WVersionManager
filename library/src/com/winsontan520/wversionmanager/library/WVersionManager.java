@@ -399,10 +399,10 @@ public class WVersionManager implements IWVersionManager {
 			if(statusCode != HttpStatus.SC_OK){
 				Log.e(TAG, "Response invalid. status code=" + statusCode);
 			}else{
-				if(!result.startsWith("{")){ // for response who append with unknown char
-					 result= result.substring(1);
-			    }
 				try{
+					if(!result.startsWith("{")){ // for response who append with unknown char
+						 result= result.substring(1);
+				    }
 					// json format from server: 
 					JSONObject json = (JSONObject)new JSONTokener(result).nextValue();
 					versionCode = json.optInt("version_code");

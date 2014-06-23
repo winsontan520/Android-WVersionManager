@@ -13,7 +13,7 @@ public class CustomTagHandler implements TagHandler{
 		// you may add more tag handler which are not supported by android here
 		if("li".equals(tag)){
 			if(opening){
-				output.append(" • ");
+				output.append(" \u2022 ");
 			}else{
 				output.append("\n");
 			}
