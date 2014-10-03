@@ -26,7 +26,7 @@
             android:layout_marginLeft="15dp"
             android:ems="15"
             android:inputType="textUri"
-            android:text="http://bit.ly/11c7Pnb" />
+            android:text="http://bit.ly/wversionmanager-v2" />
 
         <LinearLayout
             android:id="@+id/url_button_layout"

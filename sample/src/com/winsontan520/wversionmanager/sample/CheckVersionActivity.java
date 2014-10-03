@@ -12,8 +12,8 @@ import android.widget.EditText;
 public class CheckVersionActivity extends Activity {
 	
 	// this is just a sample url to retrieve update content, the return content must follow the json format as stated in readme.md
-	public final static String URL_VERSION_2 = "http://bit.ly/11c7Pnb"; // this link is refer to a static text file hosted using dropbox
-	public final static String URL_VERSION_3 = "http://bit.ly/127Ug7e";
+	public final static String URL_VERSION_2 = "http://bit.ly/wversionmanager-v2"; // this link is refer to a static text file hosted using dropbox
+	public final static String URL_VERSION_3 = "http://bit.ly/wversionmanager-v3";
 	
 	private EditText versionContentUrl;
 	private EditText updateNowLabel;
