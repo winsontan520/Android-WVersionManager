@@ -51,14 +51,15 @@ Android-WVersionManager
     	versionManager.setReminderTimer(10); // this mean checkVersion() will not take effect within 10 minutes
 
 5. Set callback for your own implementation:
-			versionManager.setOnReceiveListener(new OnReceiveListener() {
-				@Override
-				public boolean onReceive(int status, String result) {
-					// implement your own logic here
-					return false; // return true if you want to use library's default dialog
-				}
-			});
-
+	```
+	versionManager.setOnReceiveListener(new OnReceiveListener() {
+		@Override
+		public boolean onReceive(int status, String result) {
+			// implement your own logic here
+			return false; // return true if you want to use library's default dialog
+		}
+	});
+	```
 ## Usage - Ask user for rate
 1. Copy latest version of jarfile in folder JAR to your project libs folder. You may also check out src used as project library.
 2. Add following lines to prompt user dialog for rating
