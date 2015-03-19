@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
@@ -13,7 +14,8 @@ import com.winsontan520.wversionmanager.library.OnReceiveListener;
 import com.winsontan520.wversionmanager.library.WVersionManager;
 
 public class CheckVersionActivity extends Activity {
-
+	protected static final String TAG = "CheckVersionActivity";
+	
 	// this is just a sample url to retrieve update content, the return content
 	// must follow the json format as stated in readme.md
 	// please use proper rest api for your project, this is just for demo
@@ -81,10 +83,13 @@ public class CheckVersionActivity extends Activity {
 
 				@Override
 				public boolean onReceive(int status, String result) {
+					Log.d(TAG, "status = " + status);
+					Log.d(TAG, "result = " + result);
+
 					if(mProgressDialog != null){
 						mProgressDialog.cancel();
 					}
-					
+
 					if(!checkBoxUseDefaultDialog.isChecked()){
 						showMyOwnDialog(status, result);
 					}
@@ -104,6 +109,11 @@ public class CheckVersionActivity extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Status " + status);
 		builder.setMessage("Result: \n" + result);
+		
+		if(status != 200){
+			builder.setTitle("Ops...");
+			builder.setMessage("Something wrong...");
+		}
 		builder.create().show();
 	}
 

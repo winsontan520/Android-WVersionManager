@@ -7,8 +7,13 @@ Android-WVersionManager
 
 ## Features
 - Show Alert Dialog with new update content and 3 options button: update now, remind me later and ignore this version.
-- Show ALert Dialog to prompt user ask for rating
+- Callback to implement your own custom logic
+- Show Alert Dialog to prompt user ask for rating
 - Few lines of code to implement.
+
+## Changelog
+- v1.1 Ask for rating
+- v1.2 Add OnReceive callback when response
 
 ## Screenshots
 ![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image.png)
@@ -43,6 +48,15 @@ Android-WVersionManager
     	versionManager.setIgnoreThisVersionLabel("Custom ignore this version");
     	versionManager.setUpdateUrl("http://your_app_url"); // this is the link will execute when update now clicked. default will go to google play based on your package name.
     	versionManager.setReminderTimer(10); // this mean checkVersion() will not take effect within 10 minutes
+
+5. Set callback for your own implementation:
+			versionManager.setOnReceiveListener(new OnReceiveListener() {
+				@Override
+				public boolean onReceive(int status, String result) {
+					// implement your own logic here
+					return false; // return true if you want to use library's default dialog
+				}
+			});
 
 ## Usage - Ask user for rate
 1. Copy latest version of jarfile in folder JAR to your project libs folder. You may also check out src used as project library.

@@ -463,7 +463,10 @@ public class WVersionManager implements IWVersionManager {
 			mVersionCode = 0;
 			String content = null;
 			if (statusCode != HttpStatus.SC_OK) {
-				Log.e(TAG, "Response invalid. status code=" + statusCode);
+				Log.e(TAG, "Response invalid. status code = " + statusCode);
+				if (mOnReceiveListener != null) {
+					mOnReceiveListener.onReceive(statusCode, result);
+				}
 			} else {
 				try {
 					if (!result.startsWith("{")) { // for response who append
@@ -471,13 +474,13 @@ public class WVersionManager implements IWVersionManager {
 						result = result.substring(1);
 					}
 					mResult = result;
-					if(BuildConfig.DEBUG){
+					if (BuildConfig.DEBUG) {
 						Log.d(TAG, "status = " + statusCode);
 						Log.d(TAG, "result = " + mResult);
 					}
-					
+
 					// show default dialog if no listener is set OR return true
-					if(mOnReceiveListener == null || mOnReceiveListener.onReceive(statusCode, result)){
+					if (mOnReceiveListener == null || mOnReceiveListener.onReceive(statusCode, result)) {
 						// json format from server:
 						JSONObject json = (JSONObject) new JSONTokener(mResult).nextValue();
 						mVersionCode = json.optInt("version_code");
@@ -487,7 +490,7 @@ public class WVersionManager implements IWVersionManager {
 						if (currentVersionCode < mVersionCode) {
 							// new versionCode will always higher than
 							// currentVersionCode
-							if (mVersionCode != getIgnoreVersionCode()) { 
+							if (mVersionCode != getIgnoreVersionCode()) {
 								// set dialog message
 								setMessage(content);
 
@@ -503,7 +506,7 @@ public class WVersionManager implements IWVersionManager {
 					Log.e(TAG, e.toString());
 				}
 			}
-		}
+		}		
 	}
 
 	/*
