@@ -14,6 +14,7 @@ Android-WVersionManager
 ## Changelog
 - v1.1 Ask for rating
 - v1.2 Add OnReceive callback when response
+- v1.3 Fix error handling callback
 
 ## Screenshots
 ![Screenshot](https://github.com/winsontan520/Android-WVersionManager/raw/master/image.png)
