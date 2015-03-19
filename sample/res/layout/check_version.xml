@@ -14,8 +14,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:text="setVersionContentUrl" />
 
         <EditText
@@ -53,13 +53,33 @@
                 android:text="Use sample version 3 url" />
         </LinearLayout>
 
+        <CheckBox
+            android:id="@+id/checkBoxWithCallback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/url_button_layout"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:checked="true"
+            android:text="With Callback" />
+
+        <CheckBox
+            android:id="@+id/checkBoxUseDefaultDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxWithCallback"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:checked="true"
+            android:text="Use default library Dialog" />
+
         <TextView
             android:id="@+id/text_setUpdateNowLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/url_button_layout"
-            android:layout_marginTop="5dp"
+            android:layout_below="@+id/checkBoxUseDefaultDialog"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:text="setUpdateNowLabel" />
 
         <EditText
@@ -77,8 +97,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/updateNowLabel"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:text="setRemindMeLaterLabel" />
 
         <EditText
@@ -95,8 +115,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/remindMeLaterLabel"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:text="setIgnoreThisVersionLabel" />
 
         <EditText
@@ -113,8 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ignoreThisVersionLabel"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:text="setReminderTimer (minutes)" />
 
         <EditText
