@@ -55,8 +55,8 @@ Android-WVersionManager
 	versionManager.setOnReceiveListener(new OnReceiveListener() {
 		@Override
 		public boolean onReceive(int status, String result) {
-			// implement your own checking here such as cancel progress loading, read json, check version
-			return false; // return true if you want to use library's default dialog
+			// implement your own compare logic here
+			return false; // return true if you want to use library's default logic & dialog
 		}
 	});
 	```
