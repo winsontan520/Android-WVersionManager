@@ -2,6 +2,9 @@ Android-WVersionManager [Deprecated]
 ====================
 ## PLEASE NOTE, THIS PROJECT IS NO LONGER BEING MAINTAINED, YOU ARE WELCOME TO COPY AND IMPROVE AS YOUR OWN PROJECT. PLEASE INFORM ME THE IMPROVED VERSION SO I CAN LINK IT FOR OTHER USERS
 
+Following links are the improved version by others:
+- [revanmj](https://github.com/revanmj/Android-WVersionManager)
+
 ## Objective
 - Save time to implement check new update available since Google play havent provide any API to check (written at Jan 2013)
 - Ask user for rate
